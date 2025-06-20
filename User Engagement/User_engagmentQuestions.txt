@@ -1,0 +1,33 @@
+# SET A
+
+1. How many distinct users are in the dataset?
+2. What is the average number of cookie IDs per user?
+3. What is the number of unique site visits by all users per month?
+4. What is the count of each event type?
+5. What percentage of visits resulted in a purchase?
+6. What percentage of visits reached checkout but not purchase?
+7. What are the top 3 most viewed pages?
+8. What are the views and add-to-cart counts per product category?
+9. What are the top 3 products by purchases?
+
+# SET B
+
+10. Create a product-level funnel table with views, cart adds, abandoned carts, and purchases.
+11. Create a category-level funnel table with the same metrics as above.
+12. Which product had the most views, cart adds, and purchases?
+13. Which product was most likely to be abandoned?
+14. Which product had the highest view-to-purchase conversion rate?
+15. What is the average conversion rate from view to cart add?
+16. What is the average conversion rate from cart add to purchase?
+
+# SET C.
+
+17. Create a visit-level summary table with user_id, visit_id, visit start time, event counts, and campaign name.
+18. (Optional) Add a column for comma-separated cart products sorted by order of addition.
+
+# Further Investigations
+
+19. Identify users exposed to campaign impressions and compare metrics with those who were not.
+20. Does clicking on an impression lead to higher purchase rates?
+21. What is the uplift in purchase rate for users who clicked an impression vs. those who didn’t?
+22. What metrics can be used to evaluate the success of each campaign?
