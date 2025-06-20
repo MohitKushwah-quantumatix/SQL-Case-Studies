@@ -1,0 +1,84 @@
+-- Movie Database Creation Script
+
+-- 1. Create Database
+CREATE DATABASE MovieDB;
+USE MovieDB;
+
+-- 2. Movies Table
+CREATE TABLE Movies (
+    movie_id INT PRIMARY KEY,
+    title VARCHAR(100),
+    genre VARCHAR(50),
+    release_year INT,
+    rating FLOAT
+);
+
+-- Insert Data into Movies Table
+INSERT INTO Movies (movie_id, title, genre, release_year, rating) VALUES
+(1, 'Inception', 'Sci-Fi', 2010, 8.8),
+(2, 'Titanic', 'Romance', 1997, 7.8),
+(3, 'The Godfather', 'Crime', 1972, 9.2),
+(4, 'The Dark Knight', 'Action', 2008, 9.0),
+(5, 'Avatar', 'Sci-Fi', 2009, 7.9);
+
+-- 3. Actors Table
+CREATE TABLE Actors (
+    actor_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    birth_year INT,
+    nationality VARCHAR(50)
+);
+
+-- Insert Data into Actors Table
+INSERT INTO Actors (actor_id, name, birth_year, nationality) VALUES
+(1, 'Leonardo DiCaprio', 1974, 'American'),
+(2, 'Christian Bale', 1974, 'British'),
+(3, 'Al Pacino', 1940, 'American'),
+(4, 'Sam Worthington', 1976, 'Australian'),
+(5, 'Morgan Freeman', 1937, 'American');
+
+-- 4. MovieActors Table
+CREATE TABLE MovieActors (
+    movie_id INT,
+    actor_id INT,
+    FOREIGN KEY (movie_id) REFERENCES Movies(movie_id),
+    FOREIGN KEY (actor_id) REFERENCES Actors(actor_id)
+);
+
+-- Insert Data into MovieActors Table
+INSERT INTO MovieActors (movie_id, actor_id) VALUES
+(1, 1), (1, 4), (2, 1), (3, 3), (4, 2), (4, 5), (5, 4);
+
+-- 5. Reviews Table
+CREATE TABLE Reviews (
+    review_id INT PRIMARY KEY,
+    movie_id INT,
+    critic_name VARCHAR(100),
+    score FLOAT,
+    FOREIGN KEY (movie_id) REFERENCES Movies(movie_id)
+);
+
+-- Insert Data into Reviews Table
+INSERT INTO Reviews (review_id, movie_id, critic_name, score) VALUES
+(1, 1, 'Critic A', 9.0), (2, 2, 'Critic B', 8.0), (3, 3, 'Critic C', 9.5),
+(4, 4, 'Critic D', 9.1), (5, 5, 'Critic E', 7.7);
+
+-- 6. BoxOffice Table
+CREATE TABLE BoxOffice (
+    movie_id INT,
+    domestic_gross BIGINT,
+    international_gross BIGINT,
+    FOREIGN KEY (movie_id) REFERENCES Movies(movie_id)
+);
+
+-- Insert Data into BoxOffice Table
+INSERT INTO BoxOffice (movie_id, domestic_gross, international_gross) VALUES
+(1, 300000000, 500000000), (2, 600000000, 1500000000), (3, 250000000, 133000000),
+(4, 530000000, 470000000), (5, 760000000, 2040000000);
+
+-- Data Validation
+SELECT * FROM Movies;
+SELECT * FROM Actors;
+SELECT * FROM MovieActors;
+SELECT * FROM Reviews;
+SELECT * FROM BoxOffice;
